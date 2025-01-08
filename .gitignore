@@ -1,5 +1,5 @@
 # Ignorar arquivos e pastas do ambiente virtual
-/flask/env/
+flask/env/
 
 # Ignorar arquivos temporários de editor
 .vscode/
@@ -24,11 +24,7 @@ __pycache__/
 # Ignorar o arquivo de banco de dados MontyDB (se for relevante para o seu projeto)
 *.db
 
-# Ignorar arquivos de configuração de IDE, como o PyCharm ou VSCode
-.vscode/
-.idea/
-
-# Ignorar o arquivo de configuração do Flask
+# Ignorar o arquivo de configuração do Flask (instância de configuração)
 instance/
 
 # Ignorar o diretório de build e outros arquivos temporários
@@ -39,19 +35,6 @@ dist/
 *.tar.gz
 *.zip
 
-# Caso tenha algum outro arquivo sensível que você não queira versionar, adicione aqui
+# Caso tenha algum outro arquivo sensível que você não queira versionar
 # .env
 # .secrets
-
-# Ignorar o diretório do ambiente virtual
-flask/env/
-
-# Ignorar arquivos de logs
-*.log
-
-# Ignorar o diretório de builds (se existir)
-build/
-
-# Ignorar arquivos temporários do sistema
-.DS_Store
-Thumbs.db
