@@ -1,5 +1,5 @@
 # Ignorar arquivos e pastas do ambiente virtual
-/env/
+/flask/env/
 
 # Ignorar arquivos temporários de editor
 .vscode/
