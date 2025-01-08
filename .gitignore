@@ -1,0 +1,45 @@
+# Ignorar arquivos e pastas do ambiente virtual
+/env/
+
+# Ignorar arquivos temporários de editor
+.vscode/
+.idea/
+
+# Ignorar arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de cache do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorar dependências do sistema operacional (se necessário)
+*.bak
+*.swp
+
+# Ignorar o arquivo de banco de dados MontyDB (se for relevante para o seu projeto)
+*.db
+
+# Ignorar arquivos de configuração de IDE, como o PyCharm ou VSCode
+.vscode/
+.idea/
+
+# Ignorar o arquivo de configuração do Flask
+instance/
+
+# Ignorar o diretório de build e outros arquivos temporários
+build/
+dist/
+
+# Ignorar arquivos de pacotes compactados gerados no processo de distribuição
+*.tar.gz
+*.zip
+
+# Caso tenha algum outro arquivo sensível que você não queira versionar, adicione aqui
+# .env
+# .secrets
+
