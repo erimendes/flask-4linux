@@ -1,11 +1,24 @@
-from blueprint.users import blueprint as users
+from bson import ObjectId
 import flask
 import montydb
+from flask import request, jsonify
+from blueprint.users import blueprint as users
 
 app = flask.Flask(__name__)
 
 app.register_blueprint(users)
 
+# Função para serializar o MongoDB ObjectId
+def serialize(document):
+    if isinstance(document, ObjectId):
+        return str(document)  # Converte ObjectId para string
+    if isinstance(document, dict):
+        return {key: serialize(value) for key, value in document.items()}
+    if isinstance(document, list):
+        return [serialize(item) for item in document]
+    return document
+
+# Função para obter a conexão com o banco de dados
 def get_conn(database):
     client = montydb.MontyClient()
     return client.get_database(database)
@@ -48,6 +61,7 @@ def add_user():
         return flask.jsonify({'NOK': 'Usuário já existe'}), 400
 
     db.users.insert_one(user)
+    user = serialize(user)  # Convertendo ObjectId para string
     return flask.jsonify({'ACK': 'Usuário inserido com sucesso', 'usuário': user}), 200
 
 @app.route("/users/<username>")
@@ -65,6 +79,8 @@ def get_user_by_username(username):
     if not users:
         return flask.jsonify({'NOK': 'Usuário não encontrado'}), 404
     
+    # Convertendo ObjectId para string antes de retornar
+    users = serialize(users)
     return flask.jsonify({'ACK': 'Usuário encontrado', 'data': users}), 200
 
 @app.route("/", methods=['GET'])
